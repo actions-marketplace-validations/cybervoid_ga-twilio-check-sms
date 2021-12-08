@@ -1,0 +1,28 @@
+{
+  "name": "ga-twilio-check-sms",
+  "version": "1.0.0",
+  "description": "Github Action app. Reaches out to twilio and fetch a list of received messages for a given phone number",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cybervoid/ga-twilio-check-sms.git"
+  },
+  "keywords": [
+    "twilio",
+    "github",
+    "actions",
+    "sms"
+  ],
+  "author": "Rafael Gil",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/cybervoid/ga-twilio-check-sms/issues"
+  },
+  "homepage": "https://github.com/cybervoid/ga-twilio-check-sms#readme",
+  "dependencies": {
+    "twilio": "^3.71.3"
+  }
+}
