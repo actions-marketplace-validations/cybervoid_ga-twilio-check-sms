@@ -17,6 +17,7 @@ try {
         .then(messages => {
             messages.some(m => {
                 const res = m.body.search(NEEDLE)
+                
                 console.log(`Was the message found?`, res)
                 core.setOutput("found", res);
             })
