@@ -20,7 +20,7 @@ try {
 
 
 async function getMessages(TWILIO_PHONE_NUMBER, NEEDLE){
-    return client.messages.list({
+    return await client.messages.list({
         to: TWILIO_PHONE_NUMBER,
         limit: 20
     })
