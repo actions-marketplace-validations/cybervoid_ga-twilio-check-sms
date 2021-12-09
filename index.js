@@ -21,7 +21,7 @@ try {
         .catch(err => console.log(`Error in the call detected`))
 
 
-    console.log(`Hello ${NEEDLE}!`);
+    console.log(`Hello ${NEEDLE}! and TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}`);
     // const time = (new Date()).toTimeString();
     const time = TWILIO_PHONE_NUMBER
     core.setOutput("time", time);
