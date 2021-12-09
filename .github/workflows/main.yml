@@ -19,4 +19,4 @@ jobs:
           text: 'Node'
 
       - name: Was the message found
-        run: echo "Was the object found? ${{ steps.found.outputs.time }}"
+        run: echo "Was the object found? ${{ steps.found.outputs.found }}"
