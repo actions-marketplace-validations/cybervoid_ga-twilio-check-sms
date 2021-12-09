@@ -17,11 +17,9 @@ try {
         .then(messages => {
             const res = messages.some(m =>  m.body.search(NEEDLE) !== -1)
             console.log(`Was the message found?`, res)
-            core.setOutput("found", res);
+            core.setOutput("found", "yes");
         })
         .catch(err => console.log(`Error in the call detected`))
-
-    console.log(`final line of code`)
 } catch (error) {
     core.setFailed(error.message);
 }
