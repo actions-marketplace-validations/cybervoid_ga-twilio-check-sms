@@ -15,9 +15,11 @@ try {
         limit: 20
     })
         .then(messages => {
-            const res = messages.some(m => m.body.search(NEEDLE))
-            console.log(`Was the message found?`, res)
-            core.setOutput("found", res);
+            messages.some(m => {
+                const res = m.body.search(NEEDLE)
+                console.log(`Was the message found?`, res)
+                core.setOutput("found", res);
+            })
         })
         .catch(err => console.log(`Error in the call detected`))
 
