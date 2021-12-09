@@ -9,6 +9,10 @@ inputs:
     description: 'Text to search in the body of the message'
     required: true
     default: ''
+  retries:
+    description: 'How many times should the Twilio API get call to check for new messages'
+    required: true
+    default: '1'
 outputs:
   found:
     description: 'Returns true if the text was found in the body of on one of the messages received by the provided number'
