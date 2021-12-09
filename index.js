@@ -16,7 +16,7 @@ try {
     })
         .then(messages => messages.forEach(m => {
 
-            console.log(`Message found: ${m.body}`)
+            console.log(`Message found: ${m}`)
         }))
         .catch(err => console.log(`Error in the call detected`))
 
