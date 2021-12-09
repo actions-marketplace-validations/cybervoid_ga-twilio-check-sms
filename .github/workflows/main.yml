@@ -1,0 +1,21 @@
+on: [ push ]
+
+jobs:
+  get_sms_list:
+    runs-on: ubuntu-latest
+    name: Fetch SMS list from Twilio
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get SMS list from Twilio
+        env:
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+        uses: ./
+        id: found
+        with:
+          phone: ${{ secrets.TWILLIO_PHONE_NUMBER }}
+
+      - name: Was the message found
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
