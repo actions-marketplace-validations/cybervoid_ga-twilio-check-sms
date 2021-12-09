@@ -1,0 +1,17 @@
+name: 'Get SMS list'
+description: 'Reach out to Twilio to fetch a list of SMS/Messages'
+inputs:
+  phone:
+    description: 'Phone number to search'
+    required: true
+    default: ''
+  text:
+    description: 'Text to search in the body of the message'
+    required: true
+    default: ''
+outputs:
+  time: # id of output
+    description: 'Returns true if the text was found in the body of on one of the messages received by the provided number'
+runs:
+  using: 'node12'
+  main: 'dist/app.js'
