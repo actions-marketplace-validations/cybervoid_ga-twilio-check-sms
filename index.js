@@ -8,6 +8,7 @@ const github = require('@actions/github');
 
 try {
     const TWILIO_PHONE_NUMBER = core.getInput('phone');
+    const NEEDLE = core.getInput('text');
 
     client.messages.list({
         to: TWILIO_PHONE_NUMBER,
@@ -20,7 +21,7 @@ try {
         .catch(err => console.log(`Error in the call detected`))
 
 
-    console.log(`Hello ${nameToGreet}!`);
+    console.log(`Hello ${NEEDLE}!`);
     // const time = (new Date()).toTimeString();
     const time = TWILIO_PHONE_NUMBER
     core.setOutput("time", time);
