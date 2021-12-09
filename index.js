@@ -10,7 +10,7 @@ try {
     const NEEDLE = core.getInput('text');
     const RETRIES = core.getInput('retries');
 
-    const res = await getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
+    const res = getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
     console.log(`Was the message found?`, res)
     core.setOutput("found", res);
 
