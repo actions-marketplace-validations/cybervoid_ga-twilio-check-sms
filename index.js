@@ -2,12 +2,11 @@ const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
 const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
 const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
 
-// const client = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+const client = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-    const phone = core.getInput('phone');
     const TWILIO_PHONE_NUMBER = core.getInput('phone');
 
     client.messages.list({
