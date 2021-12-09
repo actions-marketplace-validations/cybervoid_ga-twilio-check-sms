@@ -6,8 +6,10 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-    const TWILIO_PHONE_NUMBER = core.getInput('phone');
-    const NEEDLE = core.getInput('text');
+    const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
+    const NEEDLE = "Node"
+    // const TWILIO_PHONE_NUMBER = core.getInput('phone');
+    // const NEEDLE = core.getInput('text');
     const RETRIES = core.getInput('retries');
 
     const res = getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
@@ -19,8 +21,11 @@ try {
 }
 
 
-async function getMessages(TWILIO_PHONE_NUMBER, NEEDLE){
-    return await client.messages.list({
+function getMessages(TWILIO_PHONE_NUMBER, NEEDLE){
+    const realRes = new Promise((resolve, reject) => {
+
+    })
+    const res = client.messages.list({
         to: TWILIO_PHONE_NUMBER,
         limit: 20
     })
@@ -28,5 +33,7 @@ async function getMessages(TWILIO_PHONE_NUMBER, NEEDLE){
             return  messages.some(m =>  m.body.search(NEEDLE) !== -1)
         })
         .catch(err => console.log(`Error in the call detected`, err))
+
+    return res
 }
 
