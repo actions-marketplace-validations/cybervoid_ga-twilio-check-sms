@@ -14,14 +14,13 @@ try {
         to: TWILIO_PHONE_NUMBER,
         limit: 20
     })
-        .then(messages => messages.forEach(m => {
-            let position = m.body.search(NEEDLE);
-            console.log(`Was Message found?:`, (position !== -1))
-        }))
+        .then(messages => {
+            const res = messages.some(m => m.body.search(NEEDLE))
+            console.log(`Was the message found?`, res)
+            const time = "it works"
+            core.setOutput("time", time);
+        })
         .catch(err => console.log(`Error in the call detected`))
-
-    const time = "it works"
-    core.setOutput("time", time);
 
 } catch (error) {
     core.setFailed(error.message);
