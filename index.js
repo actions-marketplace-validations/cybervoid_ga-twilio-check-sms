@@ -10,7 +10,7 @@ try {
     const NEEDLE = core.getInput('text');
     const RETRIES = core.getInput('retries');
 
-    const res = getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
+    const res = await getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
     console.log(`Was the message found?`, res)
     core.setOutput("found", res);
 
@@ -25,8 +25,7 @@ async function getMessages(TWILIO_PHONE_NUMBER, NEEDLE){
         limit: 20
     })
         .then(messages => {
-            const res = messages.some(m =>  m.body.search(NEEDLE) !== -1)
-            return res
+            return  messages.some(m =>  m.body.search(NEEDLE) !== -1)
         })
         .catch(err => console.log(`Error in the call detected`, err))
 }
