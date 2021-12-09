@@ -16,7 +16,7 @@ try {
     })
         .then(messages => messages.forEach(m => {
             let position = m.body.search(NEEDLE);
-            console.log(`Was Message found?:`, position)
+            console.log(`Was Message found?:`, (position !== -1))
         }))
         .catch(err => console.log(`Error in the call detected`))
 
