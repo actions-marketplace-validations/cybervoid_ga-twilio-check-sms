@@ -16,14 +16,14 @@ try {
     })
         .then(messages => messages.forEach(m => {
 
-            console.log(m.body)
+            console.log(`Message found: ${m.body}`)
         }))
         .catch(err => console.log(`Error in the call detected`))
 
 
     console.log(`Hello ${NEEDLE}! and TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}`);
-    // const time = (new Date()).toTimeString();
-    const time = TWILIO_PHONE_NUMBER
+
+    const time = "it works"
     core.setOutput("time", time);
 
 

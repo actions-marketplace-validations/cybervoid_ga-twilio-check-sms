@@ -16,6 +16,7 @@ jobs:
         id: found
         with:
           phone: ${{ secrets.TWILLIO_PHONE_NUMBER }}
+          text: 'Node'
 
       - name: Was the message found
         run: echo "The time was ${{ steps.hello.outputs.time }}"
