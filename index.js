@@ -21,6 +21,7 @@ try {
         })
         .catch(err => console.log(`Error in the call detected`))
 
+    console.log(`final line of code`)
 } catch (error) {
     core.setFailed(error.message);
 }
