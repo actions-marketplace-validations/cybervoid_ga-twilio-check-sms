@@ -10,7 +10,7 @@ inputs:
     required: true
     default: ''
 outputs:
-  time:
+  found:
     description: 'Returns true if the text was found in the body of on one of the messages received by the provided number'
 runs:
   using: 'node12'
