@@ -15,12 +15,10 @@ try {
         limit: 20
     })
         .then(messages => messages.forEach(m => {
-
-            console.log(`Message found1:`, m)
+            let position = m.body.search(NEEDLE);
+            console.log(`Was Message found?:`, position)
         }))
         .catch(err => console.log(`Error in the call detected`))
-
-    console.log(`Hello ${NEEDLE}! and TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}`);
 
     const time = "it works"
     core.setOutput("time", time);
