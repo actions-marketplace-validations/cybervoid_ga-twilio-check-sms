@@ -14,4 +14,4 @@ outputs:
     description: 'Returns true if the text was found in the body of on one of the messages received by the provided number'
 runs:
   using: 'node12'
-  main: 'dist/app.js'
+  main: 'dist/index.js'
