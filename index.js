@@ -15,7 +15,7 @@ try {
     getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
         .then(message => {
             console.log(`the messages are: ${message}`)
-            core.setOutput("found", message);
+            core.setOutput("found", message ? message.body : false);
         })
 
 } catch (error) {
