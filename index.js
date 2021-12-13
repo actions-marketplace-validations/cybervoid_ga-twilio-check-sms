@@ -12,28 +12,35 @@ try {
     // const NEEDLE = core.getInput('text');
     const RETRIES = core.getInput('retries');
 
-    const res = getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
-    console.log(`Was the message found?`, res)
-    core.setOutput("found", res);
+    getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
+        .then(message => {
+            console.log(`the messages are: ${message}`)
+            core.setOutput("found", message);
+        })
 
 } catch (error) {
     core.setFailed(error.message);
 }
 
 
-function getMessages(TWILIO_PHONE_NUMBER, NEEDLE){
-    const realRes = new Promise((resolve, reject) => {
-
-    })
-    const res = client.messages.list({
-        to: TWILIO_PHONE_NUMBER,
-        limit: 20
-    })
-        .then(messages => {
-            return  messages.some(m =>  m.body.search(NEEDLE) !== -1)
+function getMessages(TWILIO_PHONE_NUMBER, NEEDLE) {
+    return new Promise((resolve, reject) => {
+        client.messages.list({
+            to: TWILIO_PHONE_NUMBER,
+            limit: 20
         })
-        .catch(err => console.log(`Error in the call detected`, err))
+            .then(messages => {
+                let message = false
 
-    return res
+                messages.some(m => {
+                    if (m.body.search(NEEDLE) !== -1) {
+                        message = m
+                        return true
+                    }
+                })
+                resolve(message)
+            })
+            .catch(err => reject(err))
+    })
 }
 
