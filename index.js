@@ -12,6 +12,7 @@ try {
     const NEEDLE = core.getInput('text');
     const RETRIES = core.getInput('retries');
 
+    console.log(`Start if the application`)
     getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
         .then(message => {
             console.log(`the messages are: ${message}`)
