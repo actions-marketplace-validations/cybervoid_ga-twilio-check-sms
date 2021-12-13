@@ -12,13 +12,11 @@ try {
     const NEEDLE = core.getInput('text');
     const RETRIES = core.getInput('retries');
 
-    console.log(`Start if the application`)
-    core.setOutput("found", "Hello!!!");
-    // getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
-    //     .then(message => {
-    //         console.log(`the messages are: ${message}`)
-    //         core.setOutput("found", message);
-    //     })
+    getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
+        .then(message => {
+            console.log(`the messages are: ${message}`)
+            core.setOutput("found", message);
+        })
 
 } catch (error) {
     core.setFailed(error.message);
