@@ -6,10 +6,8 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-    const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
-    const NEEDLE = "Node"
-    // const TWILIO_PHONE_NUMBER = core.getInput('phone');
-    // const NEEDLE = core.getInput('text');
+    const TWILIO_PHONE_NUMBER = core.getInput('phone');
+    const NEEDLE = core.getInput('text');
     const RETRIES = core.getInput('retries');
 
     getMessages(TWILIO_PHONE_NUMBER, NEEDLE)
