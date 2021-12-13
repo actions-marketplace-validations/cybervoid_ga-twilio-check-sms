@@ -25,6 +25,7 @@ try {
 
 function getMessages(TWILIO_PHONE_NUMBER, NEEDLE) {
     return new Promise((resolve, reject) => {
+        console.log(`Contacting Twilio API for messages sent to ${TWILIO_PHONE_NUMBER}`)
         client.messages.list({
             to: TWILIO_PHONE_NUMBER,
             limit: 20
